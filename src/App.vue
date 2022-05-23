@@ -2,7 +2,7 @@
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <AppHeader @clickBtn="userSearch" />
-    <FilmLibrary />
+    <FilmLibrary :moviesList= 'filmsList' />
   </div>
 </template>
 

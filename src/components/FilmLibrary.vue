@@ -1,6 +1,10 @@
 <template>
   <section>
-    <AppFilm />
+    <AppFilm 
+    v-for ="movie, i in moviesList"
+     :key="i"
+     :details="movie"
+    />
   </section>
 </template>
 
@@ -15,7 +19,9 @@ export default {
   data() {
     return {};
   },
-  props: {},
+  props: {
+      moviesList: Array
+  },
   created() {},
   comupted: {},
   methods: {},
@@ -23,4 +29,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
 </style> 
