@@ -2,7 +2,7 @@
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <AppHeader @clickBtn="userSearch" />
-    <FilmLibrary :moviesList= 'filmsList' />
+    <FilmLibrary :moviesList="filmsList" :tvList="tvSeries" />
   </div>
 </template>
 
@@ -19,27 +19,37 @@ export default {
   },
   data() {
     return {
-      apiUrl: "https://api.themoviedb.org/3/search/movie",
+      apiUrl: "https://api.themoviedb.org/3/search/",
       apiKey: "b9612d6887d453afe08f46bb4d714504",
       filmList: [],
+      tvSeries: []
     };
   },
 
   methods: {
     getFilm: function (apiParams) {
       axios
-        .get(this.apiUrl, apiParams)
+        .get(this.apiUrl + 'movie', apiParams)
         .then((result) => {
           this.filmsList = result.data.results;
-          console.log(this.filmsList);
+          console.log("film",this.filmsList);
         })
+
         .catch((error) => {
           console.log("errore", error);
-        });
-    },
+        })
 
-    userSearch(inputText) {
-      const paramsSearch = {
+    },
+     getTvSeries: function(apiParams) {
+      axios
+      .get(this.apiUrl +'tv',apiParams)
+      .then((result) => {
+        this.tvSeries = result.data.results;
+        console.log("serie",this.tvSeries);
+      })
+      
+    userSearch(inputText), {
+      const: paramsSearch = {
         params: {
           api_key: this.apiKey,
           query: inputText,
@@ -47,6 +57,7 @@ export default {
         },
       };
       this.getFilm(paramsSearch);
+      this.getTvSeries(paramsSearch)
     },
   },
 };
