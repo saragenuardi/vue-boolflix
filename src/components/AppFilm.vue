@@ -7,7 +7,7 @@
         <img src="../assets/img/italia.jpg" alt="italy" />
       </div>
       <div v-else-if="details.original_language === 'ja'">
-        <img src="../assets/img/giappone.jpg" alt="greatbritain" />
+        <img src="../assets/img/giappone.jpg" alt="japan" />
       </div>
       <div v-else>
         `Bandiera non disponibile: Lang= {{ details.original_language }}`

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
     <AppHeader @clickBtn="userSearch" />
     <FilmLibrary :moviesList="filmsList" :tvList="tvSeries" />
   </div>
@@ -47,9 +46,10 @@ export default {
         this.tvSeries = result.data.results;
         console.log("serie",this.tvSeries);
       })
+     },
       
-    userSearch(inputText), {
-      const: paramsSearch = {
+    userSearch: function(inputText) {
+      const paramsSearch = {
         params: {
           api_key: this.apiKey,
           query: inputText,
@@ -57,7 +57,7 @@ export default {
         },
       };
       this.getFilm(paramsSearch);
-      this.getTvSeries(paramsSearch)
+      this.getTvSeries(paramsSearch);
     },
   },
 };

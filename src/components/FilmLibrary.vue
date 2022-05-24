@@ -1,7 +1,7 @@
 <template>
   <section>
     <AppFilm 
-    v-for ="movie in moviesList"
+     v-for ="movie in moviesList"
      :key="movie.id"
      :details="movie"
     />
