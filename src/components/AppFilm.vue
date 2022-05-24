@@ -25,7 +25,7 @@ export default {
       flagIta: "../assets/img/italia.jpg",
     };
   },
-  props: {
+  computed: {
     details: Object,
   },
   methods: {
