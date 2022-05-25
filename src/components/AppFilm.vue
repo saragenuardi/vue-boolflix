@@ -11,10 +11,9 @@
         <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
       </div>
       <div v-else>
-          `Bandiera non disponibile: Lang= {{details.original_language}}`
+        `Bandiera non disponibile: Lang= {{ details.original_language }}`
       </div>
-
-      <!-- {{ details.vote_average }} -->
+      <div>{{ voteBase5 }}</div>
     </div>
   </div>
 </template>
@@ -24,17 +23,28 @@ export default {
   name: "AppFilm",
   data() {
     return {
-      flagIta: "../assets/img/italia.jpg",
+      baseUrl: "https://image.tmdb.org/t/p/",
+      sizeImg: "w342/",
+      posterPath: this.details.poster_path,
+      originalVoteAvg: this.details.vote_average,
+      voteBase5: "",
     };
   },
-  computed: {
-    details: Object,
+  //   computed: {
+  //     details: Object,
+  //   },
+  created() {
+    this.vote1to5();
   },
   methods: {
-    flagImg() {
-      if (this.details.original_language === "it") {
-        this.details.original_language = this.flagIta;
-      }
+    // flagImg() {
+    //   if (this.details.original_language === "it") {
+    //     this.details.original_language = this.flagIta;
+    //   }
+    // },
+    vote1to5() {
+      console.log((this.vote = this.originalVoteAvg / 2));
+      return (this.voteBase5 = Math.ceil(this.originalVoteAvg / 2));
     },
   },
 };
