@@ -17,6 +17,7 @@
 
 import AppFilm from "../components/AppFilm.vue";
 import TvSeries from '../components/TvSeries.vue'
+
 export default {
   name: "FilmLibrary",
   components: {

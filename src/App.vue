@@ -33,7 +33,6 @@ export default {
           this.filmsList = result.data.results;
           console.log("film",this.filmsList);
         })
-
         .catch((error) => {
           console.log("errore", error);
         })
@@ -54,8 +53,9 @@ export default {
           api_key: this.apiKey,
           query: inputText,
           language: "it-IT",
-        },
+        }
       };
+
       this.getFilm(paramsSearch);
       this.getTvSeries(paramsSearch);
     },

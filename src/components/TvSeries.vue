@@ -6,14 +6,14 @@
     <div v-if="details.original_language === 'it'">
       <img src="../assets/img/italia.jpg" alt="italy" />
     </div>
-    <div v-else-if="details.original_language === 'en'">
-      <img src="../assets/img/giappone.jpg" alt="greatbritain" />
+    <div v-else-if="details.original_language === 'ja'">
+      <img src="../assets/img/giappone.jpg" alt="japan" />
     </div>
     <div v-else>
-      `Bandiera non disponibile: Lang= {{ details.original_language }}`
+       Bandiera non disponibile: Lang= {{ details.original_language }}
     </div>
 
-    <div>{{ details.vote_average }}</div>
+    <!-- <div>{{ details.vote_average }}</div> -->
   </div>
 </template>
 

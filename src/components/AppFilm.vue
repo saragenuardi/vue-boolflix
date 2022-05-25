@@ -1,20 +1,22 @@
 <template>
-  <section>
+  <div id="movie">
+    <img :src="baseUrl + sizeImg + posterPath" :alt="details.original_title" />
     <h3>{{ details.original_title }}</h3>
     <h4>{{ details.title }}</h4>
     <div>
       <div v-if="details.original_language === 'it'">
-        <img src="../assets/img/italia.jpg" alt="italy" />
+        <img class="flags" src="../assets/img/italia.jpg" alt="italy" />
       </div>
       <div v-else-if="details.original_language === 'ja'">
-        <img src="../assets/img/giappone.jpg" alt="japan" />
+        <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
       </div>
       <div v-else>
-        `Bandiera non disponibile: Lang= {{ details.original_language }}`
+          `Bandiera non disponibile: Lang= {{details.original_language}}`
       </div>
-      {{ details.vote_average }}
+
+      <!-- {{ details.vote_average }} -->
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -31,7 +33,7 @@ export default {
   methods: {
     flagImg() {
       if (this.details.original_language === "it") {
-        this.details.original_language = this.flagIta
+        this.details.original_language = this.flagIta;
       }
     },
   },
@@ -42,7 +44,7 @@ export default {
 #movie {
   margin: 30px;
 }
-img {
+.flags {
   width: 20px;
 }
 </style> 
