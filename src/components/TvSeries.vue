@@ -1,6 +1,11 @@
 <template>
   <div id="tvseries">
-    <img :src="baseUrl + sizeImg + posterPath" :alt="details.original_title" />
+    <img
+      class="poster"
+      :src="baseUrl + sizeImg + posterPath"
+      :alt="details.original_title"
+    />
+    <div class="infocards"></div>
     <h3>{{ details.original_name }}</h3>
     <h4>{{ details.name }}</h4>
 
@@ -14,7 +19,13 @@
       Bandiera non disponibile: Lang= {{ details.original_language }}
     </div>
 
-    <div>{{ voteBase5 }}</div>
+    <i v-for="n in voteBase5" :key="'full' + n" class="fas fa-star full-star">
+    </i>
+    <i
+      v-for="y in 5 - voteBase5"
+      :key="'empty' + y"
+      class="far fa-star empty-star"
+    ></i>
   </div>
 </template>
 
@@ -48,8 +59,23 @@ export default {
 <style scoped lang="scss">
 #tvseries {
   margin: 30px;
+  position: relative;
+
+  &:hover .infocards {
+    display: block;
+  }
+  .infocards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .poster {
+    border: 1px solid white;
+  }
 }
-.flags {
-  width: 20px;
-}
-</style>

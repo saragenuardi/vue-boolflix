@@ -1,9 +1,14 @@
 <template>
   <div id="movie">
-    <img :src="baseUrl + sizeImg + posterPath" :alt="details.original_title" />
-    <h3>{{ details.original_title }}</h3>
-    <h4>{{ details.title }}</h4>
-    <div>
+    <img
+      class="poster"
+      :src="baseUrl + sizeImg + posterPath"
+      :alt="details.original_title"
+    />
+    <div class="infocards">
+      <h3>{{ details.original_title }}</h3>
+      <h4>{{ details.title }}</h4>
+
       <div v-if="details.original_language === 'it'">
         <img class="flags" src="../assets/img/italia.jpg" alt="italy" />
       </div>
@@ -11,9 +16,18 @@
         <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
       </div>
       <div v-else>
-        `Bandiera non disponibile: Lang= {{ details.original_language }}`
+        Bandiera non disponibile: Lang= {{ details.original_language }}
       </div>
-      <div>{{ voteBase5 }}</div>
+      <i
+        v-for="o in voteBase5"
+        :key="'up' + o"
+        class="fas fa-star full-star"
+      ></i>
+      <i
+        v-for="y in 5 - voteBase5"
+        :key="'down' + y"
+        class="far fa-star empty-star"
+      ></i>
     </div>
   </div>
 </template>
@@ -53,8 +67,28 @@ export default {
 <style scoped lang="scss">
 #movie {
   margin: 30px;
+  position: relative;
+  &:hover .infocards {
+    display: block;
+  }
+  .infocards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .poster {
+    border: 1px solid white;
+  }
 }
 .flags {
   width: 20px;
+}
+full-star {
 }
 </style> 

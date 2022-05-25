@@ -21,39 +21,36 @@ export default {
       apiUrl: "https://api.themoviedb.org/3/search/",
       apiKey: "b9612d6887d453afe08f46bb4d714504",
       filmList: [],
-      tvSeries: []
+      tvSeries: [],
     };
   },
 
   methods: {
     getFilm: function (apiParams) {
       axios
-        .get(this.apiUrl + 'movie', apiParams)
+        .get(this.apiUrl + "movie", apiParams)
         .then((result) => {
           this.filmsList = result.data.results;
-          console.log("film",this.filmsList);
+          console.log("film", this.filmsList);
         })
         .catch((error) => {
           console.log("errore", error);
-        })
-
+        });
     },
-     getTvSeries: function(apiParams) {
-      axios
-      .get(this.apiUrl +'tv',apiParams)
-      .then((result) => {
+    getTvSeries: function (apiParams) {
+      axios.get(this.apiUrl + "tv", apiParams).then((result) => {
         this.tvSeries = result.data.results;
-        console.log("serie",this.tvSeries);
-      })
-     },
-      
-    userSearch: function(inputText) {
+        console.log("serie", this.tvSeries);
+      });
+    },
+
+    userSearch: function (inputText) {
       const paramsSearch = {
         params: {
           api_key: this.apiKey,
           query: inputText,
           language: "it-IT",
-        }
+        },
       };
 
       this.getFilm(paramsSearch);
@@ -64,4 +61,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+body {
+  background-color: #434343;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 </style>
