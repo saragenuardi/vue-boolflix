@@ -5,27 +5,43 @@
       :src="baseUrl + sizeImg + posterPath"
       :alt="details.original_title"
     />
-    <div class="infocards"></div>
-    <h3>{{ details.original_name }}</h3>
-    <h4>{{ details.name }}</h4>
+    <div class="infocards">
+      <h4>
+        Titolo : <span>{{ details.original_name }}</span>
+      </h4>
+      <h4>
+        Titolo Originale : <span>{{ details.name }}</span>
+      </h4>
+    </div>
 
     <div v-if="details.original_language === 'it'">
+      <h4>Lingua Originale:</h4>
       <img class="flags" src="../assets/img/italia.jpg" alt="italy" />
     </div>
     <div v-else-if="details.original_language === 'ja'">
+      <h4>Lingua Originale:</h4>
       <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
     </div>
     <div v-else>
+      <h4>Lingua Originale:</h4>
       Bandiera non disponibile: Lang= {{ details.original_language }}
     </div>
 
-    <i v-for="n in voteBase5" :key="'full' + n" class="fas fa-star full-star">
-    </i>
-    <i
-      v-for="y in 5 - voteBase5"
-      :key="'empty' + y"
-      class="far fa-star empty-star"
-    ></i>
+    <div class="voto">
+      <h4>Voto:</h4>
+      <i v-for="n in voteBase5" :key="'full' + n" class="fas fa-star full-star">
+      </i>
+      <i
+        v-for="y in 5 - voteBase5"
+        :key="'empty' + y"
+        class="far fa-star empty-star"
+      ></i>
+    </div>
+
+    <div class="overview">
+      <h4>Overview:</h4>
+      <p>{{ details.overview }}</p>
+    </div>
   </div>
 </template>
 
@@ -74,8 +90,28 @@ export default {
     width: 100%;
     height: 100%;
     display: none;
+    padding: 0 15px;
   }
   .poster {
     border: 1px solid white;
   }
+}
+h4 {
+  display: inline-block;
+  margin-top: 10px;
+}
+.voto {
+  margin-top: 10px;
+}
+.overview {
+  margin-top: 10px;
+  p {
+    height: 40vh;
+    overflow: scroll;
+  }
+}
+
+.flags {
+  width: 20px;
+  transform: translate(40%, 25%);
 }
