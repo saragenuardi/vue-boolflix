@@ -1,5 +1,5 @@
 <template>
-  <div id="movie">
+  <div class="movie">
     <img
       class="poster"
       :src="baseUrl + sizeImg + posterPath"
@@ -79,45 +79,51 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#movie {
-  margin: 30px;
-  position: relative;
-  &:hover .infocards {
-    display: block;
-  }
-  .infocards {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    border: 1px solid white;
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    display: none;
-    padding: 0 15px;
-  }
-  .poster {
-    border: 1px solid white;
-  }
+.movie {
+    margin: 30px;
+    position: relative;
+    width: calc(100% / 4 - 60px );
+    cursor: pointer;
+    
+    &:hover .infocards  {
+        display: block;
+    }
+    .infocards {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        border: 1px solid white;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        display: none;
+        padding: 0 15px;
+        overflow: scroll;
+    }
+    .poster {
+        border: 1px solid white;
+    }
 }
 h4 {
-  display: inline-block;
-  margin-top: 10px;
+    display: inline-block;
+    margin-top: 10px;
 }
 .voto {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 .overview {
-  margin-top: 10px;
-  p {
-    height: 40vh;
-    overflow: scroll;
-  }
+    margin-top:10px ;
+    p {
+        height: 40vh;
+        overflow: scroll;
+    }
 }
+
 .flags {
-  width: 20px;
-  transform: translate(40%, 25%);
+    width: 20px;
+    transform: translate(40%, 25%);
+   
 }
 
 </style> 

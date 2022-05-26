@@ -1,5 +1,5 @@
 <template>
-  <div id="tvseries">
+  <div class="tvseries">
     <img
       class="poster"
       :src="baseUrl + sizeImg + posterPath"
@@ -73,45 +73,50 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#tvseries {
-  margin: 30px;
-  position: relative;
 
-  &:hover .infocards {
-    display: block;
-  }
-  .infocards {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    border: 1px solid white;
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    display: none;
-    padding: 0 15px;
-  }
-  .poster {
-    border: 1px solid white;
-  }
+.tvseries {
+    margin: 30px; 
+    width: calc(100% / 4 - 60px );
+    position: relative;
+    
+    &:hover .infocards  {
+        display: inline-block;
+    }
+    .infocards {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        border: 1px solid white;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        display: none;
+        padding: 0 15px;
+        overflow: scroll;
+    }
+    .poster {
+        border: 1px solid white;
+    }
 }
 h4 {
-  display: inline-block;
-  margin-top: 10px;
+    display: inline-block;
+    margin-top: 10px;
 }
 .voto {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 .overview {
-  margin-top: 10px;
-  p {
-    height: 40vh;
-    overflow: scroll;
-  }
+    margin-top:10px ;
+    p {
+        height: 40vh;
+        // overflow: scroll;
+    }
 }
 
-.flags {
-  width: 20px;
-  transform: translate(40%, 25%);
+
+.flags{
+    width: 20px;
+    transform: translate(40%, 25%);
 }
+</style>
