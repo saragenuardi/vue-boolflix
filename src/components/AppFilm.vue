@@ -5,7 +5,7 @@
       :src="baseUrl + sizeImg + posterPath"
       :alt="details.original_title"
     />
-    <div class="infocards">
+    <!-- <div class="infocards">
       <h4>
         Titolo : <span>{{ details.original_title }}</span>
       </h4>
@@ -42,7 +42,7 @@
         <h4>Overview:</h4>
         <p>{{ details.overview }}</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

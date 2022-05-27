@@ -31,7 +31,7 @@ header {
     color: red;
     margin: 0 20px;
   }
-  
+
   div {
     margin: 0 20px;
 

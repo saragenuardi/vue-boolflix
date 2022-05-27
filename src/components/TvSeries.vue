@@ -12,35 +12,35 @@
       <h4>
         Titolo Originale : <span>{{ details.name }}</span>
       </h4>
-    </div>
 
-    <div v-if="details.original_language === 'it'">
-      <h4>Lingua Originale:</h4>
-      <img class="flags" src="../assets/img/italia.jpg" alt="italy" />
-    </div>
-    <div v-else-if="details.original_language === 'ja'">
-      <h4>Lingua Originale:</h4>
-      <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
-    </div>
-    <div v-else>
-      <h4>Lingua Originale:</h4>
-      Bandiera non disponibile: Lang= {{ details.original_language }}
-    </div>
+      <div v-if="details.original_language === 'it'">
+        <h4>Lingua Originale:</h4>
+        <img class="flags" src="../assets/img/italia.jpg" alt="italy" />
+      </div>
+      <div v-else-if="details.original_language === 'ja'">
+        <h4>Lingua Originale:</h4>
+        <img class="flags" src="../assets/img/giappone.jpg" alt="japan" />
+      </div>
+      <div v-else>
+        <h4>Lingua Originale:</h4>
+        Bandiera non disponibile: Lang= {{ details.original_language }}
+      </div>
 
-    <div class="voto">
-      <h4>Voto:</h4>
-      <i v-for="n in voteBase5" :key="'full' + n" class="fas fa-star full-star">
-      </i>
-      <i
-        v-for="y in 5 - voteBase5"
-        :key="'empty' + y"
-        class="far fa-star empty-star"
-      ></i>
-    </div>
+      <div class="voto">
+        <h4>Voto:</h4>
+        <i v-for="n in voteBase5" :key="'full' + n" class="fas fa-star full-star">
+        </i>
+        <i
+          v-for="y in 5 - voteBase5"
+          :key="'empty' + y"
+          class="far fa-star empty-star"
+        ></i>
+      </div>
 
-    <div class="overview">
-      <h4>Overview:</h4>
-      <p>{{ details.overview }}</p>
+      <div class="overview">
+        <h4>Overview:</h4>
+        <p>{{ details.overview }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -79,9 +79,10 @@ export default {
     width: calc(100% / 4 - 60px );
     position: relative;
     
-    &:hover .infocards  {
-        display: inline-block;
-    }
+     &:hover .infocards {
+          display: inline-block;
+     }
+   
     .infocards {
         position: absolute;
         top: 0;
@@ -93,7 +94,9 @@ export default {
         height: 100%;
         display: none;
         padding: 0 15px;
-        overflow: scroll;
+        overflow-y: auto;
+
+        
     }
     .poster {
         border: 1px solid white;
